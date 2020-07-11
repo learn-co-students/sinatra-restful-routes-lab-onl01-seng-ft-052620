@@ -6,6 +6,10 @@ class ApplicationController < Sinatra::Base
 
   # code actions here!
 
+  get '/' do
+    redirect '/recipes'
+  end
+
   get '/recipes' do
     @recipes = Recipe.all
     erb :index
@@ -25,17 +29,17 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes/:id' do
-    @recipe = Recipe.find_by(params[:id])
+    @recipe = Recipe.find(params[:id])
     erb :show
   end
 
   get '/recipes/:id/edit' do
-    @recipe = Recipe.find_by(params[:id])
+    @recipe = Recipe.find(params[:id])
     erb :edit
   end
 
   patch '/recipes/:id' do
-    @recipe = Recipe.find_by(params[:id])
+    @recipe = Recipe.find(params[:id])
     @recipe.update(params[:recipe])
     redirect to "/recipes/#{@recipe.id}"
   end
@@ -44,10 +48,10 @@ class ApplicationController < Sinatra::Base
     erb :error
   end
 
-  delete '/recipes/:id' do
-    @recipe = Recipe.find_by(params[:id])
+  delete "/recipes/:id" do
+    @recipe = Recipe.find(params[:id])
     @recipe.delete
-    redirect to '/recipes'
+    redirect to '/'
   end
 
 end
