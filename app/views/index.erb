@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% @recipes.each do |recipe|%>
+    <li>Name: <%= recipe.name%></li>
+    <br>
+    <li>Ingredients: <%= recipe.ingredients %></li>
+    <br>
+    <li>Cook Time: <%= recipe.cook_time %></li>
+    <br>
+    <li><a href="/recipes/<%=recipe.id%>">Link to recipe</a></li>
+    <br>
+    <li><a href="/recipes/<%=recipe.id%>/edit">Edit</a></li>
+    <%end%>
+
+</body>
+</html>
