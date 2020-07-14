@@ -1,0 +1,1 @@
+Recipe.find_or_create_by(name: "Bomb.com Mac and Cheese", ingredients: "milk, butter, cheese, elbow pasta", cook_time: "20 minutes") 
