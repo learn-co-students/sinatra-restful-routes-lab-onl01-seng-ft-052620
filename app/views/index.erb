@@ -1,0 +1,19 @@
+<h1>Welcome to the recipe page!</h1>
+
+<%if @recipes != []%>
+<div>
+<h2>Here is a list of current recipes</h2>
+<ul>
+    <%@recipes.each do |recipe|%>
+    <h3><li><%= recipe.name%>:</li></h3>
+    <blockquote>Ingredients: <%= recipe.ingredients%></blockquote>
+    <blockquote>Cooking time: <%= recipe.cook_time%></blockquote>
+    <a href="/recipes/<%=recipe.id%>">Show More</a>
+    <%end%>
+</ul>
+</div>
+<%end%>
+
+<form method="get" action="/recipes/new">
+<input type="submit" value="Add New Recipe">
+</form>
